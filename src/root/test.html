@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>Untitled</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style type="text/css">
+input[type="text"], button {
+    font-size: 1em;
+}
+</style>
+<script src="/socket.io.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+    <div>
+        <button onClick="handleList()">List</button>
+        <button onClick="handleCreate()">Create</button>
+        <button onClick="handleJoin()">Join</button>
+        <input id="text-name" type="text" placeholder="Enter Room Name" value="" />
+        <input id="text-room" type="text" placeholder="Enter Room Id" value="" />
+    </div>
+    <div>
+        <input id="text-msg" type="text" placeholder="Enter message" value="" />
+        <button onClick="handleSend()">Send</button>
+        <button onClick="handleLeave()">Leave</button>
+    </div>
+</div>
+<script src="/script.js" type="text/javascript"></script>
+</body>
+</html>
