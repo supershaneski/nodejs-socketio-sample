@@ -1,31 +1,53 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<title>socket.io | Chat App - Client Page</title>
+<title>Chat House v1.0.0</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<style type="text/css">
-input[type="text"], button {
-    font-size: 1em;
-}
-</style>
-<script src="/socket.io.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/style.css" media="screen" />
+<script type="text/javascript" src="/socket.io.js"></script>
 </head>
 <body>
 <div class="container">
-    <div>
-        <button onClick="handleList()">List</button>
-        <button onClick="handleCreate()">Create</button>
-        <button onClick="handleJoin()">Join</button>
-        <input id="text-name" type="text" placeholder="Enter Room Name" value="" />
-        <input id="text-room" type="text" placeholder="Enter Room Id" value="" />
+
+    <div id="panel-genkan" class="panel">
+        <div class="genkan">
+            <div class="genkan-inner">
+                <h4 class="genkan-title">Chat House</h4>
+                <div class="genkan-input">
+                    <input id="text-name" type="text" placeholder="Enter your name" maxlength="12" value="" />
+                    <button onclick="handleEnter()">Enter</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <input id="text-msg" type="text" placeholder="Enter message" value="" />
-        <button onClick="handleSend()">Send</button>
-        <button onClick="handleLeave()">Leave</button>
+
+    <div id="panel-lobby" class="panel">
+        <div class="lobby">
+            <div class="lobby-inner">
+                <h4 class="lobby-title">Room List</h4>
+                <ul id="list-room"></ul>
+                <div class="lobby-input">
+                    <button onclick="handleCreate()">Create Room</button>
+                    <input id="text-room" type="text" placeholder="Enter room name" maxlength="24" value="" />
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <div id="panel-message" class="panel">
+        <div class="room-header">
+            <h4 id="room-header-title">RoomName</h4>
+            <button onclick="handleLeave()">Leave Room</button>
+        </div>
+        <ul id="list-message"></ul>
+        <div class="room-action">
+            <input id="text-message" type="text" placeholder="Enter your message" maxlength="128" value="" />
+            <button onclick="handleSend()">Send</button>
+        </div>
+    </div>
+
 </div>
-<script src="/script.js" type="text/javascript"></script>
+<script type="text/javascript" src="/script.js"></script>
 </body>
 </html>
